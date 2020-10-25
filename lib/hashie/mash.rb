@@ -394,13 +394,6 @@ module Hashie
       return if self.class.disable_warnings?(method_key)
 
       method_information = Hashie::Utils.method_information(method(method_key))
-
-      Hashie.logger.warn(
-        'You are setting a key that conflicts with a built-in method ' \
-        "#{self.class}##{method_key} #{method_information}. " \
-        'This can cause unexpected behavior when accessing the key as a ' \
-        'property. You can still access the key via the #[] method.'
-      )
     end
 
     def log_collision?(method_key)
